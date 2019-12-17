@@ -1,0 +1,18 @@
+{
+  "npmScope": "nx-ie11-test",
+  "implicitDependencies": {
+    "workspace.json": "*",
+    "package.json": "*",
+    "tsconfig.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "projects": {
+    "ie11-test": {
+      "tags": []
+    },
+    "ie11-test-e2e": {
+      "tags": []
+    }
+  }
+}
