@@ -1,6 +1,29 @@
+import './app.css';
+
+import produce from 'immer';
 import React from 'react';
 
-import './app.css';
+import { Xyz } from '@nx-ie11-test/ui';
+
+const todos = [{ text: 'one', done: false }, { text: 'two', done: true }];
+
+const nextTodos = produce(todos, draft => {
+    draft.push({ text: 'learn immer', done: true });
+    draft[1].done = true;
+});
+
+// old state is unmodified
+console.log(todos.length); // 2
+console.log(todos[1].done); // false
+
+// new state reflects the draft
+console.log(nextTodos.length); // 3
+console.log(nextTodos[1].done); // true
+
+// structural sharing
+console.log(todos === nextTodos); // false
+console.log(todos[0] === nextTodos[0]); // true
+console.log(todos[1] === nextTodos[1]); // false
 
 export const App = () => {
   /*
@@ -19,6 +42,9 @@ export const App = () => {
         <h1>Welcome to ie11-test!</h1>
       </header>
       <main>
+        <h2>Library dependency</h2>
+        <Xyz />
+
         <h2>Resources &amp; Tools</h2>
         <p>Thank you for using and showing some ♥ for Nx.</p>
         <div className="flex github-star-container">
@@ -46,7 +72,6 @@ export const App = () => {
         </div>
         <p>Here are some links to help you get started.</p>
         <ul className="resources">
-          <li className="col-span-2">
             <li className="col-span-2">
               <a
                 className="resource flex"
@@ -55,6 +80,7 @@ export const App = () => {
                 Nx video course
               </a>
             </li>
+                <li className="col-span-2">
             <a
               className="resource flex"
               href="https://nx.dev/react/getting-started/what-is-nx"

@@ -1,76 +1,19 @@
-# NxIe11Test
+# Nx Ie11 Test
 
-This project was generated using [Nx](https://nx.dev).
+This project was generated using [Nx](https://nx.dev) in order to check IE11 compatibility of the stack.
 
-<p align="center"><img src="https://raw.githubusercontent.com/nrwl/nx/master/nx-logo.png" width="450"></p>
+## `yarn start`
 
-🔎 **Nx is a set of Extensible Dev Tools for Monorepos.**
+### .babelrc 
 
-## Adding capabilities to your workspace
+`.babelrc` has been moved from the app folder to the main monorepo folder, so that depending libraries can be transpiled with the same rules
+ (see `Xyz` component from `ui` library I've imported in `App.tsx`);
 
-Nx supports many plugins which add capabilities for developing different types of applications and different tools.
+### Immer
 
-These capabilities include generating applications, libraries, etc as well as the devtools to test, and build projects as well.
+[Immer](https://github.com/immerjs/immer) seem to be quite unstable in my real environment, but it transpiles fine here. I've added a very simple example from the official documentation.
 
-Below are some plugins which you can add to your workspace:
+## `yarn build`
 
-- [React](https://reactjs.org)
-  - `npm install --save-dev @nrwl/react`
-- Web (no framework frontends)
-  - `npm install --save-dev @nrwl/web`
-- [Angular](https://angular.io)
-  - `npm install --save-dev @nrwl/angular`
-- [Nest](https://nestjs.com)
-  - `npm install --save-dev @nrwl/nest`
-- [Express](https://expressjs.com)
-  - `npm install --save-dev @nrwl/express`
-- [Node](https://nodejs.org)
-  - `npm install --save-dev @nrwl/node`
+Back to square zero. With or withour Immer, with or without including a library dependency, it renders a white page. No errors, no life :(
 
-## Generate an application
-
-Run `nx g @nrwl/react:app my-app` to generate an application.
-
-> You can use any of the plugins above to generate applications as well.
-
-When using Nx, you can create multiple applications and libraries in the same workspace.
-
-## Generate a library
-
-Run `nx g @nrwl/react:lib my-lib` to generate a library.
-
-> You can also use any of the plugins above to generate libraries as well.
-
-Libraries are sharable across libraries and applications. They can be imported from `@nx-ie11-test/mylib`.
-
-## Development server
-
-Run `nx serve my-app` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `nx g @nrwl/react:component my-component --project=my-app` to generate a new component.
-
-## Build
-
-Run `nx build my-app` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `nx test my-app` to execute the unit tests via [Jest](https://jestjs.io).
-
-Run `nx affected:test` to execute the unit tests affected by a change.
-
-## Running end-to-end tests
-
-Run `ng e2e my-app` to execute the end-to-end tests via [Cypress](https://www.cypress.io).
-
-Run `nx affected:e2e` to execute the end-to-end tests affected by a change.
-
-## Understand your workspace
-
-Run `nx dep-graph` to see a diagram of the dependencies of your projects.
-
-## Further help
-
-Visit the [Nx Documentation](https://nx.dev) to learn more.
