@@ -4,7 +4,6 @@
  * to only include the polyfills necessary for the target browsers.
  */
 import 'core-js/stable';
-
 import 'regenerator-runtime/runtime';
 
 /**

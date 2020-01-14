@@ -19,9 +19,11 @@
               "apps/ie11-test/src/favicon.ico",
               "apps/ie11-test/src/assets"
             ],
-            "styles": ["apps/ie11-test/src/styles.css"],
+            "styles": [
+              "apps/ie11-test/src/styles.css"
+            ],
             "scripts": [],
-            "webpackConfig": "@nrwl/react/plugins/babel"
+            "webpackConfig": "@nrwl/react/plugins/webpack"
           },
           "configurations": {
             "production": {
@@ -68,7 +70,10 @@
               "apps/ie11-test/tsconfig.app.json",
               "apps/ie11-test/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/ie11-test/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/ie11-test/**"
+            ]
           }
         },
         "test": {
@@ -103,8 +108,13 @@
           "options": {
             "linter": "eslint",
             "config": "apps/ie11-test-e2e/.eslintrc",
-            "tsConfig": ["apps/ie11-test-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/ie11-test-e2e/**"]
+            "tsConfig": [
+              "apps/ie11-test-e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/ie11-test-e2e/**"
+            ]
           }
         }
       }
@@ -124,7 +134,10 @@
               "libs/ui/tsconfig.lib.json",
               "libs/ui/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/ui/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/ui/**"
+            ]
           }
         },
         "test": {
