@@ -11,10 +11,13 @@
     "ie11-test": {
       "tags": []
     },
-    "ie11-test-e2e": {
+    "ui": {
       "tags": []
     },
-    "ui": {
+    "_demo": {
+      "tags": []
+    },
+    "domains": {
       "tags": []
     }
   }

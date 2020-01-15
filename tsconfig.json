@@ -16,7 +16,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@nx-ie11-test/ui": ["libs/ui/src/index.ts"]
+      "@nx-ie11-test/ui": ["libs/ui/src/index.ts"],
+      "@nx-ie11-test/domains": ["libs/domains/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

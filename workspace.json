@@ -19,9 +19,7 @@
               "apps/ie11-test/src/favicon.ico",
               "apps/ie11-test/src/assets"
             ],
-            "styles": [
-              "apps/ie11-test/src/styles.css"
-            ],
+            "styles": ["apps/ie11-test/src/styles.css"],
             "scripts": [],
             "webpackConfig": "@nrwl/react/plugins/webpack"
           },
@@ -70,10 +68,7 @@
               "apps/ie11-test/tsconfig.app.json",
               "apps/ie11-test/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/ie11-test/**"
-            ]
+            "exclude": ["**/node_modules/**", "!apps/ie11-test/**"]
           }
         },
         "test": {
@@ -81,40 +76,6 @@
           "options": {
             "jestConfig": "apps/ie11-test/jest.config.js",
             "tsConfig": "apps/ie11-test/tsconfig.spec.json"
-          }
-        }
-      }
-    },
-    "ie11-test-e2e": {
-      "root": "apps/ie11-test-e2e",
-      "sourceRoot": "apps/ie11-test-e2e/src",
-      "projectType": "application",
-      "architect": {
-        "e2e": {
-          "builder": "@nrwl/cypress:cypress",
-          "options": {
-            "cypressConfig": "apps/ie11-test-e2e/cypress.json",
-            "tsConfig": "apps/ie11-test-e2e/tsconfig.e2e.json",
-            "devServerTarget": "ie11-test:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "ie11-test:serve:production"
-            }
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:lint",
-          "options": {
-            "linter": "eslint",
-            "config": "apps/ie11-test-e2e/.eslintrc",
-            "tsConfig": [
-              "apps/ie11-test-e2e/tsconfig.e2e.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/ie11-test-e2e/**"
-            ]
           }
         }
       }
@@ -134,10 +95,7 @@
               "libs/ui/tsconfig.lib.json",
               "libs/ui/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/ui/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/ui/**"]
           }
         },
         "test": {
@@ -145,6 +103,109 @@
           "options": {
             "jestConfig": "libs/ui/jest.config.js",
             "tsConfig": "libs/ui/tsconfig.spec.json"
+          }
+        }
+      }
+    },
+    "_demo": {
+      "root": "apps/_demo",
+      "sourceRoot": "apps/_demo/src",
+      "projectType": "application",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/web:build",
+          "options": {
+            "outputPath": "dist/apps/_demo",
+            "index": "apps/_demo/src/index.html",
+            "main": "apps/_demo/src/main.tsx",
+            "polyfills": "apps/_demo/src/polyfills.ts",
+            "tsConfig": "apps/_demo/tsconfig.app.json",
+            "assets": ["apps/_demo/src/favicon.ico", "apps/_demo/src/assets"],
+            "styles": ["apps/_demo/src/styles.css"],
+            "scripts": [],
+            "webpackConfig": "@nrwl/react/plugins/webpack"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/_demo/src/environments/environment.ts",
+                  "with": "apps/_demo/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/web:dev-server",
+          "options": {
+            "buildTarget": "_demo:build"
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "_demo:build:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "config": "apps/_demo/.eslintrc",
+            "tsConfig": [
+              "apps/_demo/tsconfig.app.json",
+              "apps/_demo/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/_demo/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/_demo/jest.config.js",
+            "tsConfig": "apps/_demo/tsconfig.spec.json"
+          }
+        }
+      }
+    },
+    "domains": {
+      "root": "libs/domains",
+      "sourceRoot": "libs/domains/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "config": "libs/domains/.eslintrc",
+            "tsConfig": [
+              "libs/domains/tsconfig.lib.json",
+              "libs/domains/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/domains/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/domains/jest.config.js",
+            "tsConfig": "libs/domains/tsconfig.spec.json"
           }
         }
       }
