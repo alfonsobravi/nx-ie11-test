@@ -30,7 +30,7 @@
     "axios": "^0.19.1",
     "document-register-element": "1.13.1",
     "formik": "^2.1.2",
-    "immer": "^5.2.1",
+    "immer": "^9.0.6",
     "react": "16.12.0",
     "react-app-polyfill": "^1.0.5",
     "react-dom": "16.12.0",
